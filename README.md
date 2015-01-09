@@ -1,7 +1,8 @@
 # Endnote2XLS
+<pre>
 Oh, this is a tiny tool just used to convert file format. It is so easy. Welcome to make it perfect.
-----English-Version---------------------------------------------------------------------------------
-How to use it?
+<h2>English-Version</h2>
+<h3>How to use it?</h3>
 1.install package: devtools(just once):  
   install.packages("devtools")
 2.install Endnote2XLS(just once))：
@@ -15,8 +16,8 @@ How to use it?
   files = c("CBM.txt")
   EndNote2XLS(files,CBM=TRUE)
 
-----中文版------------------------------------------------------------------------------------------
-如何使用？
+<h2>中文本</h2>
+<h3>如何使用？</h3>
 1、需先安装devtools(仅安装一次):  
 install.packages("devtools")
 2、安装R包(仅安装一次)：
@@ -29,3 +30,4 @@ EndNote2XLS(files)
 5、对于CBM的文本文件格式转换方法：
 files = c("CBM.txt")
 EndNote2XLS(files,CBM=TRUE)
+</pre>
