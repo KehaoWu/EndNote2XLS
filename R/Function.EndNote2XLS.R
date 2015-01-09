@@ -16,7 +16,7 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
       assign(x = file,value = data.frame())
       next
     }
-    content = readLines(con = file)
+    content = readLines(con = file,encoding = "UTF-8")
     
     if(CBM)
     {
@@ -55,7 +55,7 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
       setTxtProgressBar(pb,index)
     }
     if(is.null(XLSFile))
-      write.table(x = Result,file = outfile,quote = F,sep = "\t",col.names = T,row.names = F)
+      write.table(x = Result,file = outfile,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
     else
       assign(x = file,value = as.data.frame(Result),envir = .GlobalEnv)
     cat("\n")
