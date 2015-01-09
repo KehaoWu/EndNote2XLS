@@ -2,7 +2,7 @@
 <pre>
 Oh, this is a tiny tool just used to convert file format. 
 It is so easy. Welcome everyone to add content.
-<h7>中文版</h7>
+<h5>中文版</h5>
 <h8>如何使用？</h8>
 1、需先安装devtools(仅安装一次):  
 <blockquote>install.packages("devtools")</blockquote>
@@ -17,7 +17,7 @@ EndNote2XLS(files)</blockquote>
 <blockquote>files = c("CBM.txt")
 EndNote2XLS(files,CBM=TRUE)</blockquote>
 
-<h7>English-Version</h7>
+<h5>English-Version</h5>
 <h8>How to use it?</h8>
 1.install package: devtools(just once):  
 <blockquote>install.packages("devtools")</blockquote>
