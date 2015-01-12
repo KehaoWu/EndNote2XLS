@@ -11,11 +11,11 @@
 
 4. 对于非CBM的Endnote格式文件转换方法：
 > files = c("wanfang.txt","vp.txt")
-EndNote2XLS(files)
+> EndNote2XLS(files)
 
 5. 对于CBM的文本文件格式转换方法：
 > files = c("CBM.txt")
-EndNote2XLS(files,CBM=TRUE)
+> EndNote2XLS(files,CBM=TRUE)
 
 6. 所有来自CBM、CNKI等网站的文件导出不需要做任何其他的调整，可以直接用于格式转换
 
@@ -31,9 +31,9 @@ EndNote2XLS(files,CBM=TRUE)
 
 4. For files from non-CBM：
 > files = c("wanfang.txt","vp.txt")
-EndNote2XLS(files)
+> EndNote2XLS(files)
 
 5. For files from CBM:
 > files = c("CBM.txt")
-EndNote2XLS(files,CBM=TRUE)
+> EndNote2XLS(files,CBM=TRUE)
 
