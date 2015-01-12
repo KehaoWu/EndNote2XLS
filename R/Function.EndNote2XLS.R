@@ -1,9 +1,12 @@
-#library(WriteXLS)
 EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
 {
   if(is.null(files))
   {
-    cat("Please specify your file names.\n")
+    stop("Error: Please specify your file names.\n")
+  }
+  if(!is.null(XLSFile))
+  {
+    stop("This function is under development.\n")
   }
   for(file in files)
   {
@@ -50,7 +53,8 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
           line_split = unlist(strsplit(x = line,split = "\\s"))
         first = line_split[1]
         second = paste(line_split[-1],collapse = " ")
-        Result[index,match(x = first,table = Labels)] = second
+        cIndex = match(x = first,table = Labels)
+        Result[index,cIndex] = gsub(pattern = "^\\s+",replacement = "",x = paste(Result[index,cIndex],second),perl = T)
       }
       setTxtProgressBar(pb,index)
     }
@@ -61,6 +65,6 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
     cat("\n")
   }
   if(!is.null(XLSFile))
-    WriteXLS(x = files,ExcelFileName = XLSFile)
+    WriteXLS(x = files,ExcelFileName = XLSFile,Encoding = "UTF-8",)
 }
 
