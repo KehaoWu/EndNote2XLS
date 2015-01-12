@@ -1,6 +1,6 @@
 # Endnote2XLS
 <pre>
-##中文版-使用说明
+## 中文版-使用说明
 *需先安装devtools(仅安装一次):  
 <blockquote>install.packages("devtools")</blockquote>
 *安装R包(仅安装一次)：
