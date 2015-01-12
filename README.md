@@ -1,5 +1,4 @@
 # Endnote2XLS
-<pre>
 ## 中文版-使用说明
 *需先安装devtools(仅安装一次):  
 <blockquote>install.packages("devtools")</blockquote>
@@ -29,6 +28,3 @@ EndNote2XLS(files)</blockquote>
 5、For files from CBM:
 <blockquote>files = c("CBM.txt")
 EndNote2XLS(files,CBM=TRUE)</blockquote>
-
-
-</pre>
