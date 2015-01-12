@@ -19,7 +19,10 @@
 
 6. 所有来自CBM、CNKI等网站的文件导出不需要做任何其他的调整，可以直接用于格式转换
 
-7. 转换后文件导入Excel时不要选择用空格分隔
+7. 多个文件可以先通过Windows的DOS命令来合并，以下命令在Windows下完成
+> copy * new.txt
+
+8. 转换后文件导入Excel时不要选择用空格分隔
 
 #### English-Version</h5>
 1. install package: devtools(just once)
