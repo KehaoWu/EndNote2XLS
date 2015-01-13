@@ -91,9 +91,10 @@ Endnote2XLSCombine = function(files=NULL)
   if(any(!isCBM))
   {
     content = NULL
+    cat("Merge file",file,"...\n")
+    
     for(file in files[!isCBM])
     {
-      cat("Process file",file,"...\n")
       if(!file.exists(file))
       {
         cat("File",file,"is not exist and skip it...\n")
@@ -101,6 +102,7 @@ Endnote2XLSCombine = function(files=NULL)
       }
       content = c(content,readLines(file,encoding = "UTF-8"))
     }
+    cat("Process non-CBM files ...\n")
     Result = trans(content)
     outfile = paste(dirname(files[!isCBM][1]),"Endnote2XLS.txt",sep="/")
     write.table(x = Result,file = outfile,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
@@ -109,9 +111,10 @@ Endnote2XLSCombine = function(files=NULL)
   if(any(isCBM))
   {
     content = NULL
+    cat("Merge file",file,"...\n")
+    
     for(file in files[isCBM])
     {
-      cat("Process file",file,"...\n")
       if(!file.exists(file))
       {
         cat("File",file,"is not exist and skip it...\n")
@@ -119,6 +122,7 @@ Endnote2XLSCombine = function(files=NULL)
       }
       content = c(content,readLines(file,encoding = "UTF-8"))
     }
+    cat("Process CBM files ...\n")
     Result = trans(content)
     outfile = paste(dirname(files[!isCBM][1]),"Endnote2XLS.CBM.txt",sep="/")
     write.table(x = Result,file = outfile,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
