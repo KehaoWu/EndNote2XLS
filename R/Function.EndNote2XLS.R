@@ -10,6 +10,8 @@ trans = function(content)
     Start = (1:length(content))[grepl(pattern = "^[0-9]",perl = T,x = content)]
     Labels = unlist(lapply(X = content[-Start],FUN = function(line)unlist(strsplit(x = line,split = ":"))[1]))
   }else{
+    content = content[!grepl(pattern = "^%\\+",x = content)]
+    content = content[grepl(pattern = "^%",x = content)]
     Start = (1:length(content))[grepl(pattern = "%0",x = content)]
     Labels = unlist(lapply(X = content,FUN = function(line)unlist(strsplit(x = line,split = "\\s"))[1]))
   }
