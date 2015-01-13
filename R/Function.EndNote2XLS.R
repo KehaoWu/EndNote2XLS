@@ -91,10 +91,10 @@ Endnote2XLSCombine = function(files=NULL)
   if(any(!isCBM))
   {
     content = NULL
-    cat("Merge file",file,"...\n")
     
     for(file in files[!isCBM])
     {
+      cat("Merge file",file,"...\n")
       if(!file.exists(file))
       {
         cat("File",file,"is not exist and skip it...\n")
@@ -111,10 +111,10 @@ Endnote2XLSCombine = function(files=NULL)
   if(any(isCBM))
   {
     content = NULL
-    cat("Merge file",file,"...\n")
     
     for(file in files[isCBM])
     {
+      cat("Merge file",file,"...\n")
       if(!file.exists(file))
       {
         cat("File",file,"is not exist and skip it...\n")
