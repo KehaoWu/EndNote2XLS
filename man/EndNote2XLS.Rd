@@ -7,17 +7,15 @@ Convert files from Chinese reference database to txt.
 Oh, this is a tiny tool just used to convert file format. It is so easy. Welcome to enlarge it.
 }
 \usage{
-EndNote2XLS(files = NULL, CBM = F, XLSFile = NULL)
+EndNote2XLS(files = NULL,combine = F)
 }
 \arguments{
   \item{files}{
 A vector contained your file names.
 }
-  \item{CBM}{
-TRUE or FALSE. Use it to specify whether your file come from CBM database.
+  \item{Combine}{
+TRUE or FALSE with default value is FALSE. Use it to specify whether you want to combine such files.
 }
-  \item{XLSFile}{
-Not available.
 }
 }
 \details{
@@ -32,12 +30,12 @@ KeHao Wu<Kehao.wu@gmail.com>
 
 \examples{
 #Example:
-#1. Endnote file format:
-files = c("wanfang.txt","vp.txt")  #Your file description will be specified like this.
-EndNote2XLS(files)
+#1. if you want to combine such files:
+files = dir()  #To get all file names in your current work directory.
+EndNote2XLS(files,combine=T)
 
-#2. CBM file format:
-files = c("CBM.txt") #Your file description will be specified like this.
-EndNote2XLS(files,CBM=TRUE)
+#2. if you do not want to combine such files:
+files = dir()  #To get all file names in your current work directory.
+EndNote2XLS(files)
 }
 
