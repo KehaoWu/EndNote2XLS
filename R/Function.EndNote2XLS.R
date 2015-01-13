@@ -3,7 +3,7 @@ trans = function(content)
   CBM = FALSE
   if(grepl(pattern = "^[0-9]",perl = T,x = content[1]))
     CBM = TRUE
-  
+  content = content[!grepl(pattern = "^%\\+",x = x)]
   if(CBM)
   {
     content = content[grepl(pattern = "^[0-9]|:",perl = T,x = content)]
