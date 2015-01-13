@@ -1,18 +1,18 @@
-EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
+Endnote2XLS = function(files=NULL,merge=F)
 {
   if(is.null(files))
   {
     stop("Error: Please specify your file names.\n")
   }
-  if(!is.null(XLSFile))
-  {
-    stop("This function is under development.\n")
-  }
+  outfileMerge = paste(dirname(files[1]),"Endnote2XLS.txt",sep="/")
+  outfileMergeCBM = paste(dirname(files[1]),"Endnote2XLS.CBM.txt",sep="/")
+  first = TRUE
+  firstCBM = TRUE
+  print(outfileMerge)
   for(file in files)
   {
     cat("Process file",file,"...\n")
-    if(is.null(XLSFile))
-      outfile = paste(file,".txt",sep="")
+    outfile = paste(file,".txt",sep="")
     if(!file.exists(file))
     {
       cat("File",file,"is not exist and skip it...\n")
@@ -20,6 +20,9 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
       next
     }
     content = readLines(con = file,encoding = "UTF-8")
+    CBM = FALSE
+    if(grepl(pattern = "^[0-9]",perl = T,x = content[1]))
+      CBM = TRUE
     
     if(CBM)
     {
@@ -58,13 +61,29 @@ EndNote2XLS = function(files=NULL,CBM=F,XLSFile=NULL)
       }
       setTxtProgressBar(pb,index)
     }
-    if(is.null(XLSFile))
+    if(!merge)
       write.table(x = Result,file = outfile,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
     else
-      assign(x = file,value = as.data.frame(Result),envir = .GlobalEnv)
+    {
+      if(CBM)
+      {
+        if(firstCBM)
+        {
+          write.table(x = Result,file = outfileMergeCBM,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
+          firstCBM = FALSE
+        }else{
+          write.table(x = Result,file = outfileMergeCBM,quote = F,sep = "\t",col.names = F,row.names = F,fileEncoding = "UTF-8",append = T)
+        }
+      }else{
+        if(first)
+        {
+          write.table(x = Result,file = outfileMerge,quote = F,sep = "\t",col.names = T,row.names = F,fileEncoding = "UTF-8")
+          first = FALSE
+        }else{
+          write.table(x = Result,file = outfileMerge,quote = F,sep = "\t",col.names = F,row.names = F,fileEncoding = "UTF-8",append = T)
+        }      }
+    }
     cat("\n")
   }
-  if(!is.null(XLSFile))
-    WriteXLS(x = files,ExcelFileName = XLSFile,Encoding = "UTF-8",)
 }
 
