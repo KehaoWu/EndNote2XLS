@@ -14,12 +14,12 @@
 3. 加载R包
 > library(Endnote2XLS)
 
-4. 如果不需要合并输出结果
+4. 如果不需要合并输出结果<br>
    files=dir()的作用是获取当前工作路径下的所有文件名，前提是该工作路径下只含有你需要转换的文件
 > files = dir() <br>
 > Endnote2XLS(files)
 
-5. 如果需要合并输出结果
+5. 如果需要合并输出结果<br>
    files=dir()的作用是获取当前工作路径下的所有文件名，前提是该工作路径下只含有你需要转换的文件
 > files = dir() <br>
 > Endnote2XLS(files,combine=T)
