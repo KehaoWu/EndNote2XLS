@@ -17,7 +17,6 @@ A vector contained your file names.
 TRUE or FALSE with default value is FALSE. Use it to specify whether you want to combine such files.
 }
 }
-}
 \details{
 }
 \value{
